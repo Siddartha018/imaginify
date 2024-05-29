@@ -13,15 +13,16 @@ export function cn(...inputs: ClassValue[]) {
 // ERROR HANDLER
 export const handleError = (error: unknown) => {
   if (error instanceof Error) {
-    // This is a native JavaScript error (e.g., TypeError, RangeError)
-    console.error(error.message);
+    if (error.message.includes('Could not connect to any servers in your MongoDB Atlas cluster')) {
+      console.error('Connection error: Please ensure your IP address is whitelisted in MongoDB Atlas.');
+    } else {
+      console.error(error.message);
+    }
     throw new Error(`Error: ${error.message}`);
-  } else if (typeof error === "string") {
-    // This is a string error message
+  } else if (typeof error === 'string') {
     console.error(error);
     throw new Error(`Error: ${error}`);
   } else {
-    // This is an unknown type of error
     console.error(error);
     throw new Error(`Unknown error: ${JSON.stringify(error)}`);
   }
