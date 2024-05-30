@@ -49,6 +49,7 @@ const TransformationForm = ({action,data=null}:TransformationFormProps) => {
     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
       <CustomField control={form.control} name="title" formLabel="Image Title"
       className="w-full" render={({field})=><Input {...field} className="input-field"/>} />
+      <Button/>
     </form>
   </Form>
   )
