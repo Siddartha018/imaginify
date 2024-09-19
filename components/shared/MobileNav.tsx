@@ -16,7 +16,12 @@ import { SignedOut } from "@clerk/nextjs"
 import { Button } from "../ui/button"
 
 
-const MobileNav = () => {
+```
+/**
+ * Renders a mobile navigation component with a logo, user authentication buttons, and a slide-out menu.
+ * @returns {JSX.Element} A header element containing the mobile navigation structure.
+ */
+```const MobileNav = () => {
 const pathname=usePathname();
   return (
     <header className="header">
@@ -39,6 +44,12 @@ const pathname=usePathname();
                 <>
                 <Image src="/assets/images/logo-text.svg" alt="logo" width={152} height={23}/>
                 <ul className='header-nav_elements'>
+                        /**
+                         * Renders a list of navigation links
+                         * @param {Array} navLinks - An array of navigation link objects
+                         * @param {string} pathname - The current pathname for determining active link
+                         * @returns {JSX.Element} A list of rendered navigation link items
+                         */
                         {navLinks.map((link)=>{
                             const isActive=link.route===pathname
                             return (

@@ -26,6 +26,13 @@ export const formSchema = z.object({
 })
 
 
+/**
+ * TransformationForm component for handling image transformation form
+ * @param {Object} props - The component props
+ * @param {string} props.action - The action to perform ('Update' or other)
+ * @param {Object|null} [props.data=null] - The initial data for the form (optional)
+ * @returns {JSX.Element} A form for image transformation
+ */
 const TransformationForm = ({action,data=null}:TransformationFormProps) => {
     const initialValues= data && action==='Update'?{
         title: data?.title,
@@ -48,6 +55,11 @@ const TransformationForm = ({action,data=null}:TransformationFormProps) => {
     <Form {...form}>
     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
       <CustomField control={form.control} name="title" formLabel="Image Title"
+      /**
+       * Renders an Input component with specific props and styling
+       * @param {Object} field - The field object containing input properties
+       * @returns {JSX.Element} A styled Input component
+       */
       className="w-full" render={({field})=><Input {...field} className="input-field"/>} />
       <Button/>
     </form>

@@ -14,6 +14,11 @@ if(!cached){
     }
 }
 
+/**
+ * Connects to the MongoDB database or returns an existing connection
+ * @param {void} - This function doesn't accept any parameters
+ * @returns {Promise<mongoose.Connection>} A promise that resolves to the database connection
+ */
 export const connectToDatabase=async()=>{
     if(cached.conn) return cached.conn;
     if(!MONGODB_URL) throw new Error('missing MONGODB_URL');

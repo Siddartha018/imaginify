@@ -7,6 +7,11 @@ import { Webhook } from "svix";
 
 import { createUser, deleteUser, updateUser } from "@/lib/actions/user.actions";
 
+/**
+ * Handles POST requests for webhook events from Clerk authentication service
+ * @param {Request} req - The incoming request object
+ * @returns {Response} A response indicating the result of processing the webhook event
+ */
 export async function POST(req: Request) {
   const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET;
 

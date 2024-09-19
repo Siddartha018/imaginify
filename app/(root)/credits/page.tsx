@@ -1,6 +1,12 @@
 import React from 'react'
 
-const CreditPage = () => {
+```
+/**
+ * Renders the Credit Page component.
+ * @returns {JSX.Element} A div element containing the text "CreditPage".
+ */
+
+```const CreditPage = () => {
   return (
     <div>CreditPage
     

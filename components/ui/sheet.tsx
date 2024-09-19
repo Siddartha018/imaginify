@@ -18,6 +18,13 @@ const SheetPortal = SheetPrimitive.Portal
 const SheetOverlay = React.forwardRef<
   React.ElementRef<typeof SheetPrimitive.Overlay>,
   React.ComponentPropsWithoutRef<typeof SheetPrimitive.Overlay>
+/**
+ * Renders an overlay component using SheetPrimitive.Overlay
+ * @param {Object} props - The component props
+ * @param {string} [props.className] - Additional CSS class names
+ * @param {React.Ref} ref - The forwarded ref
+ * @returns {React.ReactElement} The rendered overlay component
+ */
 >(({ className, ...props }, ref) => (
   <SheetPrimitive.Overlay
     className={cn(
@@ -56,6 +63,15 @@ interface SheetContentProps
 const SheetContent = React.forwardRef<
   React.ElementRef<typeof SheetPrimitive.Content>,
   SheetContentProps
+/**
+ * Renders a sheet component with customizable side, overlay, and close button.
+ * @param {Object} props - The component props.
+ * @param {string} [props.side="right"] - The side of the screen where the sheet appears.
+ * @param {string} [props.className] - Additional CSS classes for the sheet content.
+ * @param {React.ReactNode} props.children - The content to be rendered inside the sheet.
+ * @param {React.Ref} ref - Ref object for the sheet content.
+ * @returns {React.ReactElement} A React element representing the sheet component.
+ */
 >(({ side = "right", className, children, ...props }, ref) => (
   <SheetPortal>
     <SheetOverlay />
@@ -74,7 +90,13 @@ const SheetContent = React.forwardRef<
 ))
 SheetContent.displayName = SheetPrimitive.Content.displayName
 
-const SheetHeader = ({
+```
+/**
+ * Renders a sheet header component with customizable styling
+ * @param {React.HTMLAttributes<HTMLDivElement>} props - Props for the div element, including className and any other HTML attributes
+ * @returns {JSX.Element} A div element with applied classes and props
+ */
+```const SheetHeader = ({
   className,
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) => (
@@ -82,6 +104,11 @@ const SheetHeader = ({
     className={cn(
       "flex flex-col space-y-2 text-center sm:text-left",
       className
+    /**
+     * Renders a footer component for a sheet, with responsive layout.
+     * @param {React.HTMLAttributes<HTMLDivElement>} props - The props for the component, including className and any other HTML div attributes.
+     * @returns {JSX.Element} A div element with responsive flex layout for footer content.
+     */
     )}
     {...props}
   />
@@ -94,6 +121,15 @@ const SheetFooter = ({
 }: React.HTMLAttributes<HTMLDivElement>) => (
   <div
     className={cn(
+      ```
+      /**
+       * A React component that renders a title for a sheet using SheetPrimitive.Title
+       * @param {Object} props - The props object
+       * @param {string} [props.className] - Additional CSS class names to apply to the title
+       * @param {React.Ref} ref - A ref to be forwarded to the underlying SheetPrimitive.Title component
+       * @returns {React.ReactElement} A SheetPrimitive.Title component with applied styles and props
+       */
+      ```
       "flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2",
       className
     )}
@@ -106,6 +142,13 @@ const SheetTitle = React.forwardRef<
   React.ElementRef<typeof SheetPrimitive.Title>,
   React.ComponentPropsWithoutRef<typeof SheetPrimitive.Title>
 >(({ className, ...props }, ref) => (
+  /**
+   * A React component that renders a description for a Sheet using Radix UI's SheetPrimitive.Description
+   * @param {Object} props - The props object
+   * @param {string} [props.className] - Additional CSS class names to apply to the component
+   * @param {React.Ref} ref - A ref object to access the underlying DOM element
+   * @returns {React.ReactElement} A SheetPrimitive.Description component with applied styles and props
+   */
   <SheetPrimitive.Title
     ref={ref}
     className={cn("text-lg font-semibold text-foreground", className)}
