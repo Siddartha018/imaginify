@@ -5,6 +5,13 @@ import { getUserById } from '@/lib/actions/user.actions';
 import { auth } from '@clerk/nextjs/server';
 import { redirect } from 'next/dist/server/api-utils';
 
+/**
+ * Renders the Add Transformation Type page
+ * @param {Object} props - The component props
+ * @param {Object} props.params - The route parameters
+ * @param {string} props.params.type - The transformation type
+ * @returns {Promise<JSX.Element|Object>} The rendered page component or a redirect object
+ */
 const AddTransformationTypePage = async ({params:{type}}:SearchParamProps) => {
   const {userId}=auth();
   const transformation=transformationTypes[type];
