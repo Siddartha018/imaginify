@@ -6,6 +6,10 @@ import { navLinks } from '@/constants'
 import { usePathname } from 'next/navigation'
 import { Button } from '../ui/button'
 
+/**
+ * Renders a sidebar component with navigation links and user authentication.
+ * @returns {JSX.Element} A JSX element representing the sidebar structure.
+ */
 const Sidebar = () => {
     const pathname=usePathname();
   return (
@@ -14,6 +18,12 @@ const Sidebar = () => {
             <Link href="/" className="sidebar-logo">
                 <Image src="/assets/images/logo-text.svg" alt='logo' width={180} height={28}/>
             </Link>
+/**
+ * Renders a list of navigation links in the sidebar
+ * @param {Array} navLinks - An array of navigation link objects
+ * @param {string} pathname - The current path of the application
+ * @returns {JSX.Element} A list of navigation link elements
+ */
 
             <nav className='sidebar-nav'>
                   <SignedIn>
@@ -33,6 +43,12 @@ const Sidebar = () => {
                         })}
                         </ul>
                     <ul className='sidebar-nav_elements'>
+                    /**
+                     * Renders a list of navigation links
+                     * @param {Array} navLinks - An array of navigation link objects
+                     * @param {string} pathname - The current path of the application
+                     * @returns {JSX.Element} A list of navigation link elements
+                     */
                     {navLinks.slice(6).map((link)=>{
                             const isActive=link.route===pathname
                             return (
